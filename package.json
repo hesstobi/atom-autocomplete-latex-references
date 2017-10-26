@@ -1,0 +1,24 @@
+{
+  "name": "autocomplete-latex-references",
+  "main": "./lib/main",
+  "version": "0.0.0",
+  "description": "Autocomplete Plus Support for Latex References",
+  "keywords": [],
+  "repository": "https://github.com/hesstobi/atom-autocomplete-latex-references.git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.21.0 <2.0.0"
+  },
+  "dependencies": {
+    "fuse.js": "^3.1.0",
+    "glob": "^7.1.2",
+    "promisify-node": "^0.4.0"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    }
+  }
+}
