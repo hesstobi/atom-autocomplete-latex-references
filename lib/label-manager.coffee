@@ -65,7 +65,7 @@ class LabelManager
         while match
           entry =
             label: match[4]
-            type: match[6]
+            type: match[6] or 'undefined'
             description: match[3]
             path: path
           @database[match[4]] = entry
