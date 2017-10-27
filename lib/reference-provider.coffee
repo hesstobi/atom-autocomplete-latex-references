@@ -27,7 +27,6 @@ class ReferenceProvider
     suggestion =
       text: result.label
       replacementPrefix: prefix
-      leftLabel: result.type
       type: result.type
       description: result.description if result.description?
       iconHTML: '<i class="icon-bookmark"></i>'
