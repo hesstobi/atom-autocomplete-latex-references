@@ -1,7 +1,7 @@
 {
   "name": "autocomplete-latex-references",
   "main": "./lib/main",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Autocomplete Plus Support for Latex References",
   "keywords": [],
   "repository": "https://github.com/hesstobi/atom-autocomplete-latex-references.git",
