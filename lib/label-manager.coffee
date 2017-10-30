@@ -8,6 +8,18 @@ path = require 'path'
 
 module.exports =
 class LabelManager
+  labelTragetsCommandList: [
+    "caption"
+    "subcaption"
+    "part"
+    "chapter"
+    "section"
+    "subsection"
+    "subsubsection"
+    "paragraph"
+    "subparagraph"
+    "minisec"
+  ]
   fuseOptions =
     shouldSort: true,
     threshold: 0.6,
@@ -49,14 +61,19 @@ class LabelManager
     @fuse.search(prefix)
 
   updateFileInDatabase: (path) ->
+
+    targetList = @labelTragetsCommandList.join '|'
+
     regex = ///
       (\\ # latex command begin
-      (caption|section|subsection) # caption or sections commands #2
-      {(.+?)} # arg of captions #3
+      (#{targetList}) # caption or sections commands #2
+      \*? # optimal star commands
+      (\[.+?\])? # optional paramter #3
+      {(.+?)} # arg of captions #4
       \s* # some white space
       )? # this is not nessary #1
       \\label # labels have to be defined with label
-      {(((\w+):)?.+?)} # label #4 type #6
+      {(((\w+):)?.+?)} # label #5 type #7
       ///g
 
     return new Promise((resolve, reject) =>
@@ -64,11 +81,11 @@ class LabelManager
         match = regex.exec data
         while match
           entry =
-            label: match[4]
-            type: match[6] or 'undefined'
-            description: match[3]
+            label: match[5]
+            type: match[7] or 'undefined'
+            description: match[4]
             path: path
-          @database[match[4]] = entry
+          @database[match[5]] = entry
           match =  regex.exec data
         @fuse = new Fuse(Object.values(@database),fuseOptions)
         resolve(@database)
