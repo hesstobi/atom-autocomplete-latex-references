@@ -7,6 +7,15 @@ class ReferenceProvider
   inclusionPriority: 2
   suggestionPriority: 3
   excludeLowerPriority: false
+  refCommandList: [
+    "ref"
+    "pageref"
+    "autoref"
+    "nameref"
+    "vref"
+    "eqref"
+  ]
+
 
   constructor: ->
     @manager = new LabelManager()
@@ -38,8 +47,10 @@ class ReferenceProvider
 
   getPrefix: (editor, bufferPosition) ->
 
+    cmdprefixes = @refCommandList.join '|'
+
     regex = ///
-            \\(ref|pageref|autoref|nameref|vref|eqref) # group for commands
+            \\(#{cmdprefixes}) # group for commands
             {([\w-:]+)$ # macthing the prefix
             ///
 
