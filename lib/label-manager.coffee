@@ -130,5 +130,5 @@ class LabelManager
             @updateFileInDatabase(e.path)
           when "deleted"
             @databaseFiles.delete(e.path)
-            deleteFileInDatabase(e.path)
+            @deleteFileInDatabase(e.path)
     @disposables.add watcher
