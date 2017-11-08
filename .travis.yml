@@ -1,8 +1,15 @@
 language: objective-c
-
 notifications:
   email:
     on_success: never
     on_failure: change
-
-script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
+script: curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+  | sh
+before_install:
+  - npm install -g npm@5
+  - npm install -g greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
+env:
+  global:
+    secure: Rw3p8lOKJCq8p/sJwnhzs3cm7NXnG90p6v+8pjBDqFcasBfBKydWjhDXfoaCVzDzrQO8k/m4o8FFlFrO7CHNfjwJSkcGzGnCCmS/5PkDgu4uK2S4eqY2j7eEwcdhPpvC1Z6H6fXfk3KQoSq24nhEJWdMmhBEcCY3cMSQjCzJZTgxroXr9bHbcUq13XElMv4nAXkqzKZ5HXjcMiM1X4TK12WYetBhP6GNeCRuOYXVVzgJ1OS9TmneGK3ZWqKOWqOStjeSAdyJUDzUlmQA6BTBhRNOJyEjiZ+5xucqJWk3r+wwHvB39KRrfWuQl0avXwWdVs6Cull600zwgQ4LCBTpGkVzl+MCwWeRjcgESGZFoeqstFfMlFtl3aVAgfW7apDmouEB9XH7lZMPMibensArGgdvq3qtDIoguW9knisicCS5Ki1t4g77tNK5m7k50SF9e2e+ANo2ROh7BAKNvdm+GhWPPwOHc4k+obIobim0d44fT5Qxr8t9/hKpps250rSCVXCeR9LkgIJwM1skKcGX3jKzfZCXQXdap2/XYsBE2dl0TK4L1sbxxzwUCgVjWukOpVWPWhZ2v73/TBiYUof4t7efLx1IH2IGyBpRYJlYFJ0BvVg4etfO6ae+cEJgV+o/79tc1VwOYmN4GbCCtahvba/BTLNoXw/x8T7n5Y0fTrc=
