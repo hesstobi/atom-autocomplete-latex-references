@@ -60,14 +60,17 @@ describe "Latex Referemces Autocompletions", ->
     checkSuggestion()
 
   it "has completions for the nameref command", ->
-    editor.setText('}\\nameref{fig:fi')
+    editor.setText('\\nameref{fig:fi')
     checkSuggestion()
 
   it "has completions for the vref command", ->
-    editor.setText('}\\vref{fig:fi')
+    editor.setText('\\vref{fig:fi')
     checkSuggestion()
 
   it "has completions for the eqref command", ->
-    editor.setText('}\\eqref{eq:eq')
+    editor.setText('\\eqref{eq:eq')
     checkSuggestion('eq:equation')
 
+  it "has has only equations for eqref", ->
+    editor.setText('\\eqref{s')
+    checkSuggestion('eq:section')

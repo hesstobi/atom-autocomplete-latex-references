@@ -17,7 +17,7 @@ describe "When the LabelManger gets initialized", ->
     expect(manager.databaseFiles.has(__dirname))
 
   it "parses the tex files in the project dir", ->
-    expect(Object.keys(manager.database).length).toEqual(13)
+    expect(Object.keys(manager.database).length).toEqual(14)
     expect(manager.database['fig:figure'].description).toEqual('Test Figure Label')
     expect(manager.database['fig:figure'].label).toEqual('fig:figure')
     expect(manager.database['fig:figure'].type).toEqual('fig')

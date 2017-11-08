@@ -1,5 +1,15 @@
 LabelManager = require('./label-manager')
 
+Array::where = (query, matcher = (a,b) -> a is b) ->
+  return [] if typeof query isnt "object"
+  hit = Object.keys(query).length
+  @filter (item) ->
+    match = 0
+    for key, val of query
+      match += 1 if matcher(item[key], val)
+    if match is hit then true else false
+
+
 module.exports =
 class ReferenceProvider
   selector: '.text.tex.latex'
@@ -22,10 +32,13 @@ class ReferenceProvider
     @manager.initialize()
 
   getSuggestions: ({editor, bufferPosition}) ->
-    prefix = @getPrefix(editor, bufferPosition)
+    [prefix, cmd] = @getPrefix(editor, bufferPosition)
     return unless prefix?.length
     new Promise (resolve) =>
       results = @manager.searchForPrefixInDatabase(prefix)
+      if cmd is 'eqref'
+        # Filter results to see only equation
+        results = results.where type:'eq'
       suggestions = []
       for result in results
         suggestion = @suggestionForResult(result, prefix)
@@ -58,4 +71,7 @@ class ReferenceProvider
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
 
     # Match the regex to the line, and return the match
-    line.match(regex)?[2] or ''
+    prefix = line.match(regex)?[2] or ''
+    cmd = line.match(regex)?[1] or ''
+
+    return [prefix, cmd]
