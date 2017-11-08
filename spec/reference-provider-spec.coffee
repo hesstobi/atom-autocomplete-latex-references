@@ -14,11 +14,11 @@ describe "Latex Referemces Autocompletions", ->
       prefix: prefix
     provider.getSuggestions(request)
 
-  checkSuggestion = ->
+  checkSuggestion = (text = 'fig:figure') ->
     waitsForPromise ->
       getCompletions().then (values) ->
         expect(values.length).toBeGreaterThan 0
-        expect(values[0].text).toEqual 'fig:figure'
+        expect(values[0].text).toEqual text
 
   beforeEach ->
     waitsForPromise -> atom.packages.activatePackage('autocomplete-latex-references')
@@ -50,3 +50,24 @@ describe "Latex Referemces Autocompletions", ->
   it "has completions for prefix starting with the first letter", ->
     editor.setText('\\ref{fig:fi')
     checkSuggestion()
+
+  it "has completions for the pageref command", ->
+    editor.setText('\\pageref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the autoref command", ->
+    editor.setText('\\autoref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the nameref command", ->
+    editor.setText('}\\nameref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the vref command", ->
+    editor.setText('}\\vref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the eqref command", ->
+    editor.setText('}\\eqref{eq:eq')
+    checkSuggestion('eq:equation')
+

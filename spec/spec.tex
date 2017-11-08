@@ -1,9 +1,11 @@
 
+% Captions
 \begin{figure}
   \caption{Test Figure Label} \label{fig:figure}
 \end{figure}
 
 \begin{table}
+  \subcaption{Test Subcaption} \label{tab:subtable}
   \caption{Test Table Label} \label{tab:table}
 \end{table}
 
@@ -11,8 +13,16 @@
   x = 2 \label{eq:equation}
 \end{align}
 
-\section{Section} \label{sec:sectionlabel}
+% Sections
+\part{part} \label{sec:part}
+\section{section} \label{sec:section}
+\subsection{subsection} \label{sec:subsection}
+\subsubsection{subsubsection} \label{sec:subsubsection}
+\paragraph{paragraph} \label{sec:paragraph}
+\subparagraph{subparagraph} \label{sec:subparagraph}
+\minisec{minisec} \label{sec:minisec}
 
-\subsection[Test]{Subsection}  \label{sec:subsectionlabel}
 
-\section*{Section2} \label{sec:online1} \section{Section3} \label{sec:online2}
+% Section Command Variations
+\section[Test]{section} \label{sec:sectionwithoption}
+\section*{section} \label{sec:sectionwithstar}
