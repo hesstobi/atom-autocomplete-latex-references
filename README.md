@@ -1,5 +1,7 @@
 # autocomplete-latex-references package
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hesstobi/atom-autocomplete-latex-references.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/hesstobi/atom-autocomplete-latex-references.svg?branch=master)](https://travis-ci.org/hesstobi/atom-autocomplete-latex-references)
 [![apm](https://img.shields.io/apm/v/autocomplete-latex-references.svg)](https://atom.io/packages/autocomplete-latex-references)
 [![apm](https://img.shields.io/apm/dm/autocomplete-latex-references.svg)](https://atom.io/packages/autocomplete-latex-references)
