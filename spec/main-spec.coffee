@@ -2,6 +2,10 @@ describe "Autocomplete Latex References Package", ->
   {workspaceElement} = []
 
   beforeEach ->
+
+    atom.packages.triggerActivationHook('language-latex:grammar-used')
+    atom.packages.triggerDeferredActivationHooks()
+
     workspaceElement = atom.views.getView(atom.workspace)
     waitsForPromise -> atom.packages.activatePackage('autocomplete-latex-references')
 

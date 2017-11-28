@@ -21,17 +21,20 @@ describe "Latex Referemces Autocompletions", ->
         expect(values[0].text).toEqual text
 
   beforeEach ->
+
+    atom.packages.triggerActivationHook('language-latex:grammar-used')
+    atom.packages.triggerDeferredActivationHooks()
+    atom.project.setPaths([__dirname])
+
     waitsForPromise -> atom.packages.activatePackage('autocomplete-latex-references')
-    #waitsForPromise -> atom.packages.activatePackage('language-latex')
+    waitsForPromise -> atom.workspace.open('test.tex')
 
     runs ->
       provider = atom.packages.getActivePackage('autocomplete-latex-references').mainModule.provide()
-
-    atom.project.setPaths([__dirname])
-    waitsForPromise -> atom.workspace.open('test.tex')
-    waitsFor -> Object.keys(provider.manager.database).length > 0
-    runs ->
       editor = atom.workspace.getActiveTextEditor()
+
+    waitsFor -> Object.keys(provider.manager.database).length > 0
+
 
   it "returns no completions when not at the start of a tag", ->
     editor.setText('')
