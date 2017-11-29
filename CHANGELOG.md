@@ -1,3 +1,6 @@
+## 0.2.1 - 2017-11-29
+* Fix an issue with the sync-settings package
+
 ## 0.2.0 - 2017-11-28
 * improves package loading time
 
