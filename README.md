@@ -14,3 +14,7 @@ Add references of your latex document to autocomplete+ suggestions
 * complete references of your latex project
 * different colors for different reference types
 * displays the caption or section of the reference
+
+## See also
+* [autocomplete-latex-cite package](https://github.com/hesstobi/atom-autocomplete-latex-cite): auto completion support bibtex citations in latex
+* [autocomplete-glossaries package](https://github.com/hesstobi/atom-autocomplete-glossaries): auto completion support glossaries entries
