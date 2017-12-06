@@ -2,19 +2,10 @@ LabelManager = require('./label-manager')
 
 module.exports =
 class ReferenceProvider
-  selector: '.text.tex.latex'
-  disableForSelector: '.comment'
+  selector: '.meta.reference.latex'
   inclusionPriority: 2
   suggestionPriority: 3
-  excludeLowerPriority: false
-  refCommandList: [
-    "ref"
-    "pageref"
-    "autoref"
-    "nameref"
-    "vref"
-    "eqref"
-  ]
+  excludeLowerPriority: true
 
 
   constructor: ->
@@ -52,10 +43,8 @@ class ReferenceProvider
 
   getPrefix: (editor, bufferPosition) ->
 
-    cmdprefixes = @refCommandList.join '|'
-
     regex = ///
-            \\(#{cmdprefixes}) # group for commands
+            \\(\w+) # group for commands
             {([\w-:]+)$ # macthing the prefix
             ///
 
@@ -63,7 +52,8 @@ class ReferenceProvider
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
 
     # Match the regex to the line, and return the match
-    prefix = line.match(regex)?[2] or ''
-    cmd = line.match(regex)?[1] or ''
+    match = line.match(regex)
+    prefix = match?[2] or ''
+    cmd = match?[1] or ''
 
     return [prefix, cmd]
