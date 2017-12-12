@@ -77,3 +77,19 @@ describe "Latex Referemces Autocompletions", ->
   it "has has only equations for eqref", ->
     editor.setText('\\eqref{s')
     checkSuggestion('eq:section')
+
+  it "has completions for the cref command", ->
+    editor.setText('\\cref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the cpageref command", ->
+    editor.setText('\\cpageref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the Cref command", ->
+    editor.setText('\\Cref{fig:fi')
+    checkSuggestion()
+
+  it "has completions for the Cpageref command", ->
+    editor.setText('\\Cpageref{fig:fi')
+    checkSuggestion()

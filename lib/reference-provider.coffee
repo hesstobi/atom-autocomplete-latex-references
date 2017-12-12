@@ -14,6 +14,10 @@ class ReferenceProvider
     "nameref"
     "vref"
     "eqref"
+    "cref"
+    "cpageref"
+    "Cref"
+    "Cpageref"
   ]
 
 
