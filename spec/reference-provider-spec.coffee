@@ -77,3 +77,7 @@ describe "Latex Referemces Autocompletions", ->
   it "has has only equations for eqref", ->
     editor.setText('\\eqref{s')
     checkSuggestion('eq:section')
+
+  it "it supports multiple arguments", ->
+    editor.setText('\\ref{tab:table,fig:fi')
+    checkSuggestion()

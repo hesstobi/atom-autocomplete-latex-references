@@ -45,7 +45,9 @@ class ReferenceProvider
 
     regex = ///
             \\(\w+) # group for commands
-            {([\w-:]+)$ # macthing the prefix
+            { # Start of the argument
+            (?:[\w-:]+,\s?)* # allow multiple references
+            ([\w-:]+)$ # matching the prefix
             ///
 
     # Get the text for the line up to the triggered buffer position
