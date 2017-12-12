@@ -1,3 +1,7 @@
+## 0.3.0 - 2017-12-12
+* use the grammar scope to trigger the auto completion
+* support of multiple references (useful for the `cref` command)
+
 ## 0.2.1 - 2017-11-29
 * Fix an issue with the sync-settings package
 
