@@ -81,3 +81,7 @@ describe "Latex Referemces Autocompletions", ->
   it "it supports multiple arguments", ->
     editor.setText('\\ref{tab:table,fig:fi')
     checkSuggestion()
+
+  it "has completions for stared versions of the commands", ->
+    editor.setText('\\cref*{fig:fi')
+    checkSuggestion()

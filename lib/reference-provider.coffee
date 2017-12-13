@@ -45,6 +45,7 @@ class ReferenceProvider
 
     regex = ///
             \\(\w+) # group for commands
+            \*? # Stared version of the commands
             { # Start of the argument
             (?:[\w-:]+,\s?)* # allow multiple references
             ([\w-:]+)$ # matching the prefix
