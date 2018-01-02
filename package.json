@@ -3,7 +3,10 @@
   "main": "./lib/main",
   "version": "0.3.0",
   "description": "Autocomplete Plus Support for Latex References",
-  "activationHooks": ["language-latex:grammar-used"],
+  "activationHooks": [
+    "language-latex:grammar-used",
+    "language-latex2e:grammar-used"
+  ],
   "keywords": [],
   "repository": "https://github.com/hesstobi/atom-autocomplete-latex-references.git",
   "license": "MIT",
