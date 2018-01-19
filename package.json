@@ -7,7 +7,10 @@
     "language-latex:grammar-used",
     "language-latex2e:grammar-used"
   ],
-  "keywords": [],
+  "keywords": [
+    "latex",
+    "autocomplete"
+  ],
   "repository": "https://github.com/hesstobi/atom-autocomplete-latex-references.git",
   "license": "MIT",
   "engines": {
