@@ -1,7 +1,7 @@
 {
   "name": "autocomplete-latex-references",
   "main": "./lib/main",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Autocomplete Plus Support for Latex References",
   "activationHooks": [
     "language-latex:grammar-used",
