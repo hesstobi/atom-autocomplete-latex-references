@@ -1,3 +1,6 @@
+## 0.3.2 - 2019-12-11
+* requirements update
+
 ## 0.3.1 - 2018-01-02
 * support for language-latex2e
 * support for stared commands 
