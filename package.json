@@ -19,7 +19,6 @@
   "dependencies": {
     "fuse.js": "^3.1.0",
     "glob": "^7.1.6",
-    "promisify-node": "^0.5.0"
   },
   "providedServices": {
     "autocomplete.provider": {

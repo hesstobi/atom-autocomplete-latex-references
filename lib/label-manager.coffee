@@ -1,7 +1,6 @@
 {watchPath} =  require 'atom'
 {CompositeDisposable} = require 'atom'
-promisify = require "promisify-node"
-fs = promisify('fs')
+fs = require('fs').promises
 Fuse = require 'fuse.js'
 glob = require 'glob'
 path = require 'path'
